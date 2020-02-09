@@ -17,11 +17,12 @@
                       code: {
                         $or: ['http://loinc.org|8302-2', 'http://loinc.org|8462-4',
                               'http://loinc.org|8480-6', 'http://loinc.org|2085-9',
-                              'http://loinc.org|2089-1', 'http://loinc.org|55284-4']
+                              'http://loinc.org|2089-1', 'http://loinc.org|55284-4', 'http://loinc.org|3141-9']
                       }
                     }
                   });
-
+        
+        // console.log(obv)
         $.when(pt, obv).fail(onError);
 
         $.when(pt, obv).done(function(patient, obv) {
@@ -37,6 +38,11 @@
           }
 
           var height = byCodes('8302-2');
+          
+          // LOINC 29463-7 — Body weight.
+          //LOINC 3141-9 — Body weight Measured.
+          // console.log("bw:");
+
           var weight = byCodes('3141-9');
           console.log(weight);
 
